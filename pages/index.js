@@ -7,9 +7,15 @@ export default function HomePage() {
     <div>
       <AppBar position="fixed">
         <Container fixed>
-          <Toolbar></Toolbar>
+          <Toolbar>
+
+            <a href="/" ><img src="/img/Logo1.svg" alt="Colors Logo"/></a>
+
+          </Toolbar>
         </Container>
       </AppBar>
+      
     </div>
   );
 }
+
