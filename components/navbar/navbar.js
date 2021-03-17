@@ -1,4 +1,4 @@
-import { AppBar, Container, Toolbar, Box } from "@material-ui/core";
+import { AppBar, Container, Toolbar, Box, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +30,12 @@ export default function Navbar() {
                 className={classes.logo}
               />
             </a>
-            <Box></Box>
+            <Box>
+              <Button>Servicii</Button>
+              <Button>Portfolio</Button>
+              <Button>Despre noi</Button>
+              <Button>Contacte</Button>
+            </Box>
           </Toolbar>
         </Container>
       </AppBar>
