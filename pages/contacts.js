@@ -1,27 +1,43 @@
-import {MDCMenu} from '@material/menu';
+import Button from "@material-ui/core/Button";
+import {
+  AppBar,
+  Container,
+  Toolbar,
+  IconButton,
+  Typography,
+  Box,
+} from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+import { makeStyles } from "@material-ui/core/styles";
 
-
-
-const menu = new MDCMenu(document.querySelector('.mdc-menu'));
-menu.open = true;
-
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(1),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
 
 export default function Contacts() {
-  return <>
-  <h3>Contacts</h3>
-
-  <div class="mdc-menu mdc-menu-surface">
-  <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-    <li class="mdc-list-item" role="menuitem">
-      <span class="mdc-list-item__ripple"></span>
-      <span class="mdc-list-item__text">A Menu Item</span>
-    </li>
-    <li class="mdc-list-item" role="menuitem">
-      <span class="mdc-list-item__ripple"></span>
-      <span class="mdc-list-item__text">Another Menu Item</span>
-    </li>
-  </ul>
-</div>
-  
-  </>;
+  const classes = useStyles();
+  return (
+    <AppBar position="fixed">
+      <Container>
+        <Toolbar>
+          <IconButton edge="start" color="inherit" aria-label="menu" className={classes.menuButton}>
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>web developer blog</Typography>
+          <Box mr={3}>
+            <Button color="inherit" variant="outlined">Log in</Button>
+          </Box>
+          <Button color="secondary" variant="contained">Sign in</Button>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
 }
