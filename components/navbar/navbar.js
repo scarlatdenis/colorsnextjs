@@ -1,57 +1,56 @@
-import { AppBar, Container, Toolbar, Box, Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Container from "react-bootstrap/Container";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import styles from "./navbar.module.css";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(1),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  logo: {
-    height: "30px",
-  },
-}));
-
-export default function Navbar() {
-  const classes = useStyles();
+export default function Contacts() {
   return (
-    <>
-      <AppBar position="fixed">
-        <Container fixed className={styles.Container}>
-          <Toolbar className={styles.Toolbar}>
-            <a href="/">
-              <img
-                src="/img/Logo1.svg"
-                alt="Colors Logo"
-                className={classes.logo}
-              />
-            </a>
-            <Box mr={3}>
-              <Button>Servicii</Button>
-              <Button>Portfolio</Button>
-              <Button>Despre noi</Button>
-              <Button>Contacte</Button>
-            </Box>
-            <Box>
-              <Button>
-                <img src="/img/phone1.png"></img>068-111-919
-              </Button>
-              {/* <a><img src="/img/phone1.png"></img>068-111-919</a> */}
-              <a>
-                <img src="/img/pin1.png"></img>Ion Creanga 45
-              </a>
-              <a>
-                MD<img src="/img/Polygon1.png"></img>
-              </a>
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </>
+    <Navbar bg="light" expand="lg" sticky="top">
+      <Container>
+        <Navbar.Brand href="/">
+          <img src="/img/Logo1.svg"></img>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <NavDropdown title="Servicii" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">
+                Tipar format larg
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Tipar poligrafic
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">
+                Publicitate exterioara
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">
+                Tipar pe stofe si alte materiale
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.5">
+                Design grafic
+              </NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link href="/portfolio">Portfolio</Nav.Link>
+            <Nav.Link href="/aboutUs">Despre Noi</Nav.Link>
+            <Nav.Link href="/contacts">Contacte</Nav.Link>
+            <Nav.Link >
+              <img src="/img/phone1.png" />
+              068-111-919
+            </Nav.Link>
+            <Nav.Link >
+              <img src="/img/pin1.png" />
+              Ion Creanga 45
+            </Nav.Link>
+            <NavDropdown title="MD" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1.1">MD</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2.2">RU</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
